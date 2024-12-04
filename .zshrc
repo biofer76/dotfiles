@@ -84,6 +84,9 @@ knownrm() {
 #              PATHS                 #
 # ---------------------------------- #
 
+# Python Binaries
+PATH="$(/Library/Developer/CommandLineTools/usr/bin/python3 -m site --user-base)/bin:$PATH"
+
 # MySQL Client
 PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
