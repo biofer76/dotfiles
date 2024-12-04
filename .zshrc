@@ -4,11 +4,11 @@ export ZSH="$HOME/.oh-my-zsh"
 if [ ! -d "$ZSH" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
 
 # ---------------------------------- #
-#        Core Configuration          #
+#          Configuration             #
 # ---------------------------------- #
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -26,10 +26,6 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-# ---------------------------------- #
-#          Configuration             #
-# ---------------------------------- #
-
 # Display short path
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 
@@ -39,6 +35,17 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
 
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
+
+# iCloud Folder
+export ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+
+# ---------------------------------- #
+#              Fonts                 #
+# ---------------------------------- #
+
+if ! diff -rq $ICLOUD_DIR/Apps/Fonts/ $HOME/Library/Fonts/ >/dev/null; then
+  rsync -a --quiet --update $ICLOUD_DIR/Apps/Fonts/ $HOME/Library/Fonts/
+fi
 
 # ---------------------------------- #
 #             Aliases                #
