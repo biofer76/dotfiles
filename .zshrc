@@ -3,6 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Install oh-my-zsh if not installed
 if [ ! -d "$ZSH" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
 # ---------------------------------- #
