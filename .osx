@@ -165,6 +165,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Avoid creating .DS_Store file on external volume
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
