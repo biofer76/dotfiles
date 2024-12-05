@@ -235,8 +235,11 @@ if [[ "$RUN_AS_ROOT" = true ]]; then
   # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
   # sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
-  # Disable Spotlight
+  # Disable Spotlight Indexing
   sudo mdutil -a -i off
+
+  # Disable Spotlight prompt
+  sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.Spotlight.plist
 
   # Restart spotlight
   killall mds > /dev/null 2>&1
