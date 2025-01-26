@@ -114,3 +114,7 @@ PATH="$PATH:$HOME/go/bin"
 PATH=/opt/homebrew/bin:$PATH
 
 export PATH
+
+# NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
